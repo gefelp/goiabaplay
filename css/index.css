@@ -1,36 +1,90 @@
 :root {
-  /* Novas variáveis de cor GoiabaPlay */
-  --goiaba-yellow-milho: #F7C045;
-  --goiaba-yellow-milho-hover: #E0B03F; /* Tom mais escuro para hover */
-  --goiaba-red-tomate: #D94B3A;
-  --goiaba-green-folha: #4A8B50;
-  --goiaba-marrom-terra: #7A4E2F;
-  --goiaba-beige-palha: #F4E4C1;
-  --goiaba-azul-ceu-rural: #4A90E2;
+  /* Novas variáveis de cor GoiabaPlay - conforme sua nova definição */
+  --primary-color: #D94B3A; /* Vermelho Tomate - Cor principal (ex: Botões de CTA, destaques) */
+  --primary-color-hover: #B83E2E; /* Hover da cor principal (Vermelho Tomate) */
+  --accent-color: #F7C045; /* Amarelo Milho / cor de destaque */
+  --highlight-color: #4A8B50; /* Verde Folha ou cor secundária */
+  --background-color: #FFF8EF; /* Fundo claro geral - Bege Palha mais específico */
+  --text-color: #3E2A1C; /* Texto padrão - Marrom bem escuro */
+  --light-gray: #E0E0E0; /* Tons de fundo alternativos */
+  --white: #ffffff;
+  --black: #000000;
+  --footer-bg: #232020; /* Fundo do rodapé */
+  --footer-link: #62e078; /* Link do rodapé */
 
-  /* Redefinindo as variáveis primárias do seu tema para a nova paleta */
-  --primary-color: var(--goiaba-yellow-milho);
-  --primary-color-hover: var(--goiaba-yellow-milho-hover);
+  /* Mapeando as variáveis Bootstrap para a nova paleta (ajustar conforme necessário) */
+  --bs-primary: var(--primary-color); /* Mapeia primary do Bootstrap para o seu primary */
+  --bs-primary-rgb: 217,75,58; /* RGB de #D94B3A */
+  --bs-primary-text: var(--text-color); 
+  --bs-primary-bg-subtle: #FADAD6; /* Um tom bem claro do Vermelho Tomate */
+  --bs-primary-border-subtle: #F1B2AA; /* Um tom intermediário do Vermelho Tomate */
+
+  --bs-link-color: var(--highlight-color); /* Links para Verde Folha */
+  --bs-link-hover-color: #3B6F43; /* Hover mais escuro do Verde Folha */
+
+  --bs-success: var(--highlight-color); /* Exemplo: Sucesso para Verde Folha */
+  --bs-info: var(--accent-color); /* Exemplo: Info para Amarelo Milho */
+  --bs-warning: var(--accent-color); /* Exemplo: Warning para Amarelo Milho */
+  --bs-danger: var(--primary-color); /* Exemplo: Danger para Vermelho Tomate */
+  --bs-light: var(--background-color); /* Light para seu fundo claro */
+  --bs-dark: var(--text-color); /* Dark para seu texto padrão */
+
+  /* Adicionando cores base do Bootstrap para referência, caso não estejam no HTML */
+  --bs-blue:#0d6efd;
+  --bs-indigo:#6610f2;
+  --bs-purple:#6f42c1;
+  --bs-pink:#d63384;
+  --bs-orange:#fd7e14;
+  --bs-teal:#20c997;
+  --bs-cyan:#0dcaf0;
+  --bs-gray:#6c757d;
+  --bs-gray-dark:#343a40;
+  --bs-gray-100:#f8f9fa;
+  --bs-gray-200:#e9ecef;
+  --bs-gray-300:#dee2e6;
+  --bs-gray-400:#ced4da;
+  --bs-gray-500:#adb5bd;
+  --bs-gray-600:#6c757d;
+  --bs-gray-700:#495057;
+  --bs-gray-800:#343a40;
+  --bs-gray-900:#212529;
+
+  --bs-body-bg: var(--background-color);
+  --bs-body-color: var(--text-color);
+  --bs-secondary-color:rgba(33, 37, 41, 0.75);
+  --bs-secondary-bg:#e9ecef;
+  --bs-tertiary-color:rgba(33, 37, 41, 0.5);
+  --bs-tertiary-bg:#f8f9fa;
+  --bs-border-color:#dee2e6;
+  --bs-border-color-translucent:rgba(0, 0, 0, 0.175);
+  --bs-box-shadow:0 0.5rem 1rem rgba(var(--bs-body-color-rgb), 0.15);
+  --bs-box-shadow-sm:0 0.125rem 0.25rem rgba(var(--bs-body-color-rgb), 0.075);
+  --bs-box-shadow-lg:0 1rem 3rem rgba(var(--bs-body-color-rgb), 0.175);
+  --bs-box-shadow-inset:inset 0 1px 2px rgba(var(--bs-body-color-rgb), 0.075);
+  --bs-emphasis-color:#000;
+  --bs-form-control-bg:var(--bs-body-bg);
+  --bs-form-control-disabled-bg:var(--bs-secondary-bg);
+  --bs-highlight-bg:#fff3cd;
 }
 
 body {
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: var(--goiaba-beige-palha); /* Fundo principal Bege Palha */
-  color: var(--goiaba-marrom-terra); /* Cor padrão do texto Marrom Terra */
+  background-color: var(--background-color); /* Fundo claro geral */
+  color: var(--text-color); /* Texto padrão */
 }
 
 .bg-primary {
-  background-color: var(--primary-color) !important; /* Amarelo Milho */
+  background-color: var(--primary-color) !important; /* Vermelho Tomate */
 }
 
 .bg-light {
-  background-color: var(--goiaba-beige-palha) !important; /* Bege Palha para light */
+  background-color: var(--background-color) !important; /* Fundo claro geral */
 }
 
 .form-control::placeholder {
-  color: rgba(122, 78, 47, 0.75); /* Placeholder em tom de Marrom Terra */
+  color: var(--light-gray); /* Placeholder em tom de cinza claro */
   opacity: 1;
 }
 
@@ -41,15 +95,15 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: rgba(244, 228, 193, 0.73); /* Beige Palha com transparência */
+  background-color: rgba(var(--background-color-rgb, 255,248,239), 0.73); /* Fundo claro com transparência */
   padding: 15px 0;
   z-index: 1000;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary {
-  background-color: var(--primary-color); /* Amarelo Milho */
-  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
+  background-color: var(--primary-color); /* Vermelho Tomate */
+  color: var(--white); /* Texto branco */
   padding: 10px 20px;
   border-radius: 30px;
   border: none;
@@ -58,7 +112,7 @@ body {
   margin-left: auto;
 }
 .btn-primary:hover {
-  background-color: var(--primary-color-hover) !important; /* Amarelo Milho Hover */
+  background-color: var(--primary-color-hover) !important; /* Vermelho Tomate Hover */
 }
 
 /* Centralização do conteúdo dentro do header */
@@ -87,7 +141,7 @@ body {
 /* Links do menu */
 .nav-menu a {
   text-decoration: none;
-  color: var(--goiaba-marrom-terra); /* Marrom Terra para links do menu */
+  color: var(--text-color); /* Texto padrão */
   font-weight: bold;
   padding: 10px 15px;
   transition: color 0.3s ease;
@@ -95,13 +149,13 @@ body {
 
 /* Efeito hover nos links do menu */
 .nav-menu a:hover {
-  color: var(--goiaba-azul-ceu-rural); /* Azul Céu Rural para hover */
+  color: var(--primary-color); /* Vermelho Tomate */
 }
 
 /* Estilo do botão Painel Cliente */
 .header .btn-cliente {
-  background-color: var(--primary-color); /* Amarelo Milho */
-  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
+  background-color: var(--primary-color); /* Vermelho Tomate */
+  color: var(--white); /* Texto branco */
   padding: 10px 20px;
   border-radius: 30px;
   border: none;
@@ -112,7 +166,7 @@ body {
 
 /* Hover no botão */
 .header .btn-cliente:hover {
-  background-color: var(--primary-color-hover); /* Amarelo Milho Hover */
+  background-color: var(--primary-color-hover); /* Vermelho Tomate Hover */
 }
 
 /* Menu Responsivo */
@@ -133,7 +187,7 @@ body {
 @media (max-width: 992px) {
   .header {
     position: absolute;
-    background: rgba(244, 228, 193, 0.95); /* Beige Palha com mais opacidade */
+    background: rgba(var(--background-color-rgb, 255,248,239), 0.95); /* Fundo claro com mais opacidade */
     border-radius: 0 !important;
     display: flex;
     justify-content: space-between;
@@ -153,8 +207,8 @@ body {
   /* Exibe o botão de offcanvas (menu) no meio */
   .header .offcanvas-toggler {
     display: block;
-    background: var(--primary-color); /* Amarelo Milho */
-    color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
+    background: var(--primary-color); /* Vermelho Tomate */
+    color: var(--white); /* Texto branco */
     padding: 10px 20px;
     border-radius: 30px;
     order: 2;
@@ -181,38 +235,38 @@ body {
 }
 
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28122,78,47,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Marrom Terra para o ícone do toggler */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%2862,42,28,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Texto padrão para o ícone do toggler */
   width: 30px;
   height: 30px;
 }
 
 .offcanvas-body {
-  background: var(--goiaba-beige-palha); /* Bege Palha */
+  background: var(--background-color); /* Fundo claro geral */
 }
 
 .header .btn-cliente:hover {
-  background-color: var(--primary-color-hover); /* Amarelo Milho Hover */
+  background-color: var(--primary-color-hover); /* Vermelho Tomate Hover */
 }
 
 /* Offcanvas Menu */
 .offcanvas-header {
-  background-color: var(--goiaba-yellow-milho); /* Amarelo Milho */
+  background-color: var(--primary-color); /* Vermelho Tomate */
 }
 
 .offcanvas-title {
-  color: var(--goiaba-marrom-terra); /* Título do Offcanvas em Marrom Terra */
+  color: var(--white); /* Título do Offcanvas branco */
 }
 .btn-close-white {
   background-color: transparent;
-  filter: invert(0); /* Remover invert para que o X seja escuro no fundo amarelo */
+  filter: invert(0);
   width: 1.5rem;
   height: 1.5rem;
-  color: var(--goiaba-marrom-terra); /* Cor do X em Marrom Terra */
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%237A4E2F'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e"); /* X em Marrom Terra */
+  color: var(--white); /* Cor do X branco */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e"); /* X branco */
 }
 
 .offcanvas-body a {
-  color: var(--goiaba-marrom-terra); /* Marrom Terra para links do offcanvas */
+  color: var(--text-color); /* Texto padrão para links do offcanvas */
   font-weight: 500;
   display: block;
   margin-bottom: 15px;
@@ -223,15 +277,15 @@ body {
 
 /* Alterar o fundo e cor do texto do cabeçalho do acordeão (FAQ) */
 .accordion-header .accordion-button {
-  background-color: var(--goiaba-beige-palha); /* Fundo Bege Palha */
-  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
+  background-color: var(--background-color); /* Fundo claro geral */
+  color: var(--text-color); /* Texto padrão */
   border: none;
 }
 
 /* Cor padrão da seta do acordeão */
 .accordion-button::after {
   content: "";
-  background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns%3d%27http%3a//www.w3.org/2000/svg%27 fill%3d%27%237A4E2F%27 viewBox%3d%270 0 16 16%27%3e%3cpath fill-rule%3d%27evenodd%27 d%3d%27M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z%27/%3e%3c/svg%3e'); /* Seta em Marrom Terra */
+  background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns%3d%27http%3a//www.w3.org/2000/svg%27 fill%3d%27%233E2A1C%27 viewBox%3d%270 0 16 16%27%3e%3cpath fill-rule%3d%27evenodd%27 d%3d%27M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z%27/%3e%3c/svg%3e'); /* Seta em Texto padrão */
   transform: rotate(0deg);
   transition: transform 0.2s ease-in-out;
 }
@@ -243,22 +297,22 @@ body {
 }
 
 .accordion-header .accordion-button:not(.collapsed) {
-  background-color: var(--primary-color); /* Amarelo Milho */
-  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
+  background-color: var(--primary-color); /* Vermelho Tomate */
+  color: var(--white); /* Texto branco */
   box-shadow: none;
 }
 
 .accordion-button.collapsed {
-  background-color: var(--goiaba-beige-palha); /* Bege Palha */
-  color: var(--goiaba-marrom-terra); /* Marrom Terra */
+  background-color: var(--light-gray); /* Cinza Claro */
+  color: var(--text-color); /* Texto padrão */
 }
 
 /* Estilizar o corpo do acordeão */
 .accordion-body {
-  background-color: #ffffff; /* Fundo do corpo do acordeão (pode ser Bege Palha) */
-  color: var(--goiaba-marrom-terra); /* Marrom Terra */
+  background-color: var(--white); /* Fundo do corpo do acordeão branco */
+  color: var(--text-color); /* Texto padrão */
   padding: 20px;
-  border-top: 1px solid var(--primary-color); /* Amarelo Milho */
+  border-top: 1px solid var(--primary-color); /* Vermelho Tomate */
 }
 
 /* Personalizar a borda do item do acordeão */
@@ -269,14 +323,14 @@ body {
 
 /* Alterar a cor da borda da seta ícone */
 .accordion-button::after {
-  color: var(--goiaba-marrom-terra); /* Marrom Terra para a cor da seta */
+  color: var(--text-color); /* Texto padrão para a cor da seta */
   font-size: 1.2rem;
 }
 
 /* Alterar hover e foco */
 .accordion-button:hover, .accordion-button:focus {
-  background-color: var(--primary-color); /* Amarelo Milho */
-  color: var(--goiaba-marrom-terra); /* Marrom Terra */
+  background-color: var(--primary-color); /* Vermelho Tomate */
+  color: var(--white); /* Texto branco */
 }
 /* Adicionar uma transição suave para a abertura */
 .accordion-button {
@@ -339,12 +393,12 @@ body {
 .hero {
   position: relative;
   height: 692px;
-  background-image: url("../images/gma_iptv_fundo.webp");
+  background-image: url("../images/gma_iptv_fundo.webp"); /* Manter imagem de fundo */
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
-  color: var(--goiaba-beige-palha); /* Texto branco/claro no hero */
+  color: var(--white); /* Texto branco no hero */
   padding: 0 15px;
 }
 
@@ -355,7 +409,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), var(--goiaba-marrom-terra)); /* Gradiente para Marrom Terra */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), var(--text-color)); /* Gradiente para Texto padrão */
   z-index: 1;
 }
 
@@ -376,19 +430,19 @@ body {
   font-size: 38px;
   font-weight: bold;
   margin-bottom: 10px;
-  color: var(--goiaba-yellow-milho); /* Título Hero em Amarelo Milho */
+  color: var(--accent-color); /* Amarelo Milho para título Hero */
 }
 
 .hero p {
   font-size: 17px;
   margin-bottom: 30px;
   line-height: 1.5;
-  color: var(--goiaba-beige-palha); /* Texto Hero em Beige Palha */
+  color: var(--white); /* Texto Hero branco */
 }
 
 .hero a {
-  background-color: var(--primary-color); /* Amarelo Milho para CTA */
-  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
+  background-color: var(--primary-color); /* Vermelho Tomate para CTA */
+  color: var(--white); /* Texto branco */
   padding: 18px 28px;
   border-radius: 30px;
   border: none;
@@ -399,8 +453,8 @@ body {
 }
 
 .hero a:hover {
-  background-color: var(--primary-color-hover); /* Amarelo Milho Hover */
-  color: var(--goiaba-marrom-terra); /* Manter texto Marrom Terra */
+  background-color: var(--primary-color-hover); /* Vermelho Tomate Hover */
+  color: var(--white); /* Manter texto branco */
 }
 
 .hero-image {
@@ -423,7 +477,7 @@ body {
   background-position: center;
   display: flex;
   align-items: center;
-  color: var(--goiaba-beige-palha); /* Texto Bege Palha */
+  color: var(--white); /* Texto branco */
   padding: 0 15px;
   padding-top: 60px;
 }
@@ -447,13 +501,13 @@ body {
   background-color: transparent;
   margin-bottom: -6rem;
   font-size: 0.9rem;
-  color: var(--goiaba-beige-palha); /* Bege Palha */
+  color: var(--white); /* Branco */
   margin-top: 95px;
 }
 
 .breadcrumb a {
   text-decoration: none;
-  color: var(--goiaba-beige-palha); /* Bege Palha */
+  color: var(--white); /* Branco */
 }
 
 .breadcrumb a:hover {
@@ -461,11 +515,11 @@ body {
 }
 
 .breadcrumb-item.active {
-  color: var(--goiaba-yellow-milho); /* Amarelo Milho para item ativo */
+  color: var(--accent-color); /* Amarelo Milho para item ativo */
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
-  color: var(--goiaba-beige-palha) !important; /* Separador em Bege Palha */
+  color: var(--light-gray) !important; /* Cinza Claro para separador */
 }
 
 /* Conteúdo do Hero */
@@ -473,20 +527,20 @@ body {
   position: relative;
   z-index: 2;
   max-width: 600px;
-  color: var(--goiaba-beige-palha); /* Bege Palha */
+  color: var(--white); /* Branco */
 }
 
 .hero-secondary h1 {
   font-size: 32px;
   font-weight: 700;
-  color: var(--goiaba-yellow-milho); /* Amarelo Milho */
+  color: var(--accent-color); /* Amarelo Milho */
   margin-bottom: 10px;
 }
 
 .hero-secondary p {
   font-size: 1.125rem;
   line-height: 1.5;
-  color: var(--goiaba-beige-palha); /* Bege Palha */
+  color: var(--light-gray); /* Cinza Claro */
 }
 
 /* Responsividade */
@@ -506,9 +560,9 @@ body {
 
 /* Section Icons Below Hero */
 .icon-section {
-  background-color: var(--primary-color); /* Amarelo Milho */
+  background-color: var(--primary-color); /* Vermelho Tomate */
   padding: 4px 0;
-  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
+  color: var(--white); /* Texto branco */
   text-align: center;
 }
 
@@ -523,7 +577,7 @@ body {
 .icon-box {
   flex: 1;
   padding: 3px;
-  border-right: 1px solid var(--primary-color-hover); /* Amarelo Milho Hover */
+  border-right: 1px solid var(--primary-color-hover); /* Vermelho Tomate Hover */
 }
 
 .icon-box:last-child {
@@ -571,7 +625,7 @@ body {
 
   .icon-box {
     border-right: none;
-    border-bottom: 1px solid var(--goiaba-marrom-terra); /* Borda Marrom Terra */
+    border-bottom: 1px solid var(--white); /* Borda branca */
     margin-bottom: 15px;
   }
 
@@ -585,23 +639,23 @@ body {
   position: relative;
   width: 100%;
   height: 400px;
-  background-image: url("../images/fundoprecos.webp");
+  background-image: url("../images/fundoprecos.webp"); /* Manter imagem de fundo */
   background-size: cover;
   background-position: bottom;
 }
 
 .destaque {
-  background-color: var(--goiaba-red-tomate) !important; /* Vermelho Tomate */
-  color: var(--goiaba-beige-palha) !important; /* Texto Bege Palha */
+  background-color: var(--highlight-color) !important; /* Verde Folha para destaque */
+  color: var(--white) !important; /* Texto branco */
 }
 
 .destaque .price {
-  color: var(--goiaba-beige-palha) !important; /* Preço Bege Palha */
+  color: var(--white) !important; /* Preço branco */
 }
 
 .destaque .btn {
-  background-color: var(--goiaba-beige-palha) !important; /* Botão Bege Palha */
-  color: var(--goiaba-red-tomate) !important; /* Texto Vermelho Tomate */
+  background-color: var(--white) !important; /* Botão branco */
+  color: var(--highlight-color) !important; /* Texto Verde Folha */
 }
 
 /* Adicionando uma camada de sobreposição escura */
@@ -620,7 +674,7 @@ body {
 .planos-iptv-section .content {
   position: relative;
   z-index: 2;
-  color: var(--goiaba-beige-palha); /* Bege Palha */
+  color: var(--white); /* Texto branco */
   text-align: center;
   padding: 20px;
 }
@@ -634,17 +688,17 @@ body {
 .planos-cards h2,
 .planos-cards p,
 .planos-cards label {
-  color: var(--goiaba-marrom-terra); /* Títulos e textos em Marrom Terra */
+  color: var(--text-color); /* Texto padrão */
 }
 
 /* Estilo dos cards */
 .plan-card {
-  background-color: #fff; /* Manter branco para contraste com o plano de fundo */
+  background-color: var(--white); /* Fundo branco */
   border-radius: 10px;
   padding: 30px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   text-align: center;
-  border-top: 5px solid var(--primary-color); /* Amarelo Milho */
+  border-top: 5px solid var(--primary-color); /* Vermelho Tomate */
 }
 
 /* Margem para desktop (telas maiores que 768px) */
@@ -654,7 +708,7 @@ body {
   }
 }
 
-/* Margem para celular (telas menores que 768px) */
+/* Margem para celular (telas menores que 767px) */
 @media (max-width: 767px) {
   .planos-cards {
     margin-top: -310px;
@@ -662,18 +716,18 @@ body {
 }
 
 .plan-card p {
-  color: var(--goiaba-marrom-terra); /* Marrom Terra */
+  color: var(--text-color); /* Texto padrão */
 }
 
 .plan-card h3 {
   font-size: 24px;
   margin-bottom: 10px;
-  color: var(--goiaba-red-tomate); /* Títulos dos planos em Vermelho Tomate */
+  color: var(--primary-color); /* Vermelho Tomate */
 }
 
 .plan-card .price {
   font-size: 28px;
-  color: var(--goiaba-red-tomate); /* Preços em Vermelho Tomate */
+  color: var(--primary-color); /* Vermelho Tomate */
   margin-bottom: 20px;
 }
 
@@ -682,7 +736,7 @@ body {
   padding: 0;
   text-align: left;
   font-size: 14px;
-  color: var(--goiaba-marrom-terra); /* Texto da lista em Marrom Terra */
+  color: var(--text-color); /* Texto padrão */
 }
 
 .plan-card ul li {
@@ -692,8 +746,8 @@ body {
 .plan-card ul li:before {
   content: "✔";
   margin-right: 10px;
-  color: var(--goiaba-beige-palha); /* Bege Palha */
-  background-color: var(--goiaba-green-folha); /* Verde Folha */
+  color: var(--white); /* Branco */
+  background-color: var(--highlight-color); /* Verde Folha */
   border-radius: 50%;
   padding: 5px;
   font-weight: bold;
@@ -708,8 +762,8 @@ body {
 .plan-card ul li.unavailable:before {
   content: "✘";
   margin-right: 10px;
-  color: var(--goiaba-beige-palha); /* Bege Palha */
-  background-color: var(--goiaba-red-tomate); /* Vermelho Tomate */
+  color: var(--white); /* Branco */
+  background-color: var(--primary-color); /* Vermelho Tomate */
   border-radius: 50%;
   padding: 5px;
   font-weight: bold;
@@ -721,8 +775,8 @@ body {
 }
 
 .plan-card .btn {
-  background-color: var(--goiaba-red-tomate); /* Vermelho Tomate */
-  color: var(--goiaba-beige-palha); /* Texto Bege Palha */
+  background-color: var(--primary-color); /* Vermelho Tomate */
+  color: var(--white); /* Texto branco */
   padding: 10px 20px;
   border-radius: 30px;
   text-transform: uppercase;
@@ -762,31 +816,31 @@ body {
 
 /* Garantia */
 .guarantee {
-  color: var(--primary-color); /* Amarelo Milho */
+  color: var(--primary-color); /* Vermelho Tomate */
   font-weight: 500;
   margin-top: 20px;
 }
 
 /* Footer */
 .footer {
-  background-color: var(--goiaba-marrom-terra); /* Marrom Terra */
-  color: var(--goiaba-beige-palha); /* Texto Bege Palha */
+  background-color: var(--footer-bg); /* Fundo do rodapé (original #232020) */
+  color: var(--white); /* Texto branco */
 }
 
 .footer h5 {
   font-size: 16px;
   margin-bottom: 20px;
-  color: var(--goiaba-yellow-milho); /* Títulos do footer em Amarelo Milho */
+  color: var(--accent-color); /* Amarelo Milho para títulos do footer */
 }
 
 .footer a {
-  color: var(--goiaba-beige-palha); /* Links do footer em Bege Palha */
+  color: var(--footer-link); /* Link do rodapé (original #62e078) */
   text-decoration: none;
 }
 
 .footer a:hover {
   text-decoration: underline;
-  color: var(--goiaba-azul-ceu-rural); /* Links do footer em Azul Céu Rural no hover */
+  color: var(--accent-color); /* Amarelo Milho para hover do link do footer */
 }
 
 .footer p {
@@ -801,8 +855,8 @@ body {
 .fa-twitter,
 .fa-instagram,
 .fa-linkedin {
-  background-color: var(--goiaba-yellow-milho); /* Amarelo Milho */
-  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
+  background-color: var(--accent-color); /* Amarelo Milho */
+  color: var(--text-color); /* Texto padrão */
   padding: 10px;
   border-radius: 50%;
 }
@@ -811,7 +865,7 @@ body {
   border: none;
   width: 100%;
   height: 1px;
-  background-color: rgba(122, 78, 47, 0.5); /* Marrom Terra com opacidade */
+  background-color: rgba(62, 42, 28, 0.5); /* Texto padrão com opacidade */
   opacity: inherit !important;
 }
 
@@ -829,7 +883,7 @@ body {
 
 /* Estilo para os cards de pagamento e segurança */
 .payment-card {
-  background-color: #ffffff; /* Manter branco ou ajustar se quiser */
+  background-color: var(--white); /* Branco */
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -862,8 +916,8 @@ body {
 }
 
 .copyright {
-  background-color: var(--goiaba-marrom-terra); /* Marrom Terra */
-  color: var(--goiaba-beige-palha); /* Texto Bege Palha */
+  background-color: var(--text-color); /* Texto padrão para copyright */
+  color: var(--white); /* Texto branco */
   width: 100%;
   padding: 20px 0;
 }
@@ -881,26 +935,26 @@ body {
 }
 
 .bg-custom {
-  background-color: var(--goiaba-green-folha); /* Verde Folha */
-  color: var(--goiaba-beige-palha); /* Texto Bege Palha */
+  background-color: var(--highlight-color); /* Verde Folha */
+  color: var(--white); /* Texto branco */
 }
 
 .card {
   border: none;
   border-radius: 10px;
-  background: var(--goiaba-yellow-milho); /* Amarelo Milho para cards internos */
+  background: var(--accent-color); /* Amarelo Milho para cards internos */
 }
 
 .icon-box p.text-smaller {
   font-size: 12px;
   margin-top: 10px;
-  color: var(--goiaba-marrom-terra); /* Marrom Terra para texto menor */
+  color: var(--text-color); /* Texto padrão */
 }
 
 .card p.font-weight-bold {
   font-size: 16px;
   font-weight: bold;
-  color: var(--goiaba-marrom-terra); /* Marrom Terra para texto bold */
+  color: var(--text-color); /* Texto padrão */
 }
 
 .icon-box svg {
@@ -930,34 +984,33 @@ body {
 }
 
 .compativel {
-  background: var(--goiaba-green-folha); /* Verde Folha */
+  background: var(--highlight-color); /* Verde Folha */
   border-radius: 29px;
   padding: 39px;
-  color: var(--goiaba-beige-palha); /* Texto Bege Palha */
+  color: var(--white); /* Texto branco */
 }
 .compativel h2 {
-    color: var(--goiaba-yellow-milho); /* Títulos em Amarelo Milho */
+    color: var(--accent-color); /* Amarelo Milho */
 }
 .compativel p {
-    color: var(--goiaba-beige-palha); /* Texto em Bege Palha */
+    color: var(--white); /* Texto branco */
 }
-
 
 .diferenciais {
-  background: var(--goiaba-red-tomate); /* Vermelho Tomate */
+  background: var(--primary-color); /* Vermelho Tomate */
   border-radius: 29px;
   padding: 39px;
-  color: var(--goiaba-beige-palha); /* Texto Bege Palha */
+  color: var(--white); /* Texto branco */
 }
 .diferenciais h2 {
-    color: var(--goiaba-yellow-milho); /* Títulos em Amarelo Milho */
+    color: var(--accent-color); /* Amarelo Milho */
 }
 .diferenciais li {
   margin-bottom: 21px;
   margin-top: 20px;
 }
 
-/* Margem no topo para celular (dispositivos menores que 768px) */
+/* Margem no topo para celular (dispositivos menores que 767px) */
 @media (max-width: 767px) {
   .diferenciais {
     margin-top: 30px;
@@ -966,7 +1019,7 @@ body {
 
 /* Carrosel Avaliaçoes */
 .carousel-inner {
-  background-color: var(--goiaba-beige-palha); /* Bege Palha */
+  background-color: var(--background-color); /* Fundo claro geral */
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
@@ -979,7 +1032,7 @@ body {
 
 .carousel-item {
   text-align: center;
-  color: var(--goiaba-marrom-terra); /* Marrom Terra */
+  color: var(--text-color); /* Texto padrão */
   max-width: 80%;
   margin: 0 auto;
 }
@@ -1002,12 +1055,12 @@ body {
   display: block;
   font-weight: 600;
   margin-top: 15px;
-  color: var(--goiaba-azul-ceu-rural); /* Azul Céu Rural */
+  color: var(--highlight-color); /* Verde Folha */
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background-color: var(--primary-color); /* Amarelo Milho */
+  background-color: var(--primary-color); /* Vermelho Tomate */
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -1026,7 +1079,7 @@ body {
 }
 
 .carousel-indicators [data-bs-target] {
-  background-color: var(--primary-color); /* Amarelo Milho */
+  background-color: var(--primary-color); /* Vermelho Tomate */
 }
 
 /* Responsividade */
@@ -1050,7 +1103,7 @@ body {
 }
 
 .iptv-section {
-  color: var(--goiaba-marrom-terra); /* Marrom Terra */
+  color: var(--text-color); /* Texto padrão */
 }
 
 .iptv-image {
@@ -1066,13 +1119,13 @@ body {
   font-size: 28px;
   font-weight: bold;
   margin-bottom: 20px;
-  color: var(--goiaba-red-tomate); /* Vermelho Tomate */
+  color: var(--primary-color); /* Vermelho Tomate */
 }
 
 .iptv-section p {
   font-size: 16px;
   line-height: 1.5;
-  color: var(--goiaba-marrom-terra); /* Marrom Terra */
+  color: var(--text-color); /* Texto padrão */
 }
 
 .features {
@@ -1086,13 +1139,13 @@ body {
 
 .feature p {
   font-size: 14px;
-  color: var(--goiaba-marrom-terra); /* Marrom Terra */
+  color: var(--text-color); /* Texto padrão */
 }
 .feature p strong {
-    color: var(--goiaba-red-tomate); /* Destaque em Vermelho Tomate */
+    color: var(--primary-color); /* Vermelho Tomate */
 }
 
-/* Margem no topo para celular (dispositivos menores que 768px) */
+/* Margem no topo para celular (dispositivos menores que 767px) */
 @media (max-width: 767px) {
   .iptv-text {
     margin-top: 30px;
@@ -1100,7 +1153,7 @@ body {
 }
 
 .benefit-card {
-  background-color: var(--goiaba-beige-palha); /* Bege Palha */
+  background-color: var(--background-color); /* Fundo claro geral */
   border: none;
   transition: transform 0.3s ease;
 }
@@ -1115,8 +1168,8 @@ body {
 }
 
 .parallax-section {
-  background: url('/static/images/parallax-image.jpg') center center/cover no-repeat;
-  color: var(--goiaba-beige-palha); /* Bege Palha */
+  background: url('/static/images/parallax-image.jpg') center center/cover no-repeat; /* Manter imagem */
+  color: var(--white); /* Texto branco */
   padding: 60px 0;
 }
 
@@ -1128,7 +1181,7 @@ body {
   position: relative;
   display: flex;
   justify-content: space-between;
-  background-color: rgba(244, 228, 193, 0.73); /* Bege Palha com transparência */
+  background-color: rgba(var(--background-color-rgb, 255,248,239), 0.73); /* Fundo claro com transparência */
   border-radius: 30px;
   padding: 10px 15px;
   margin: 0 auto;
@@ -1142,62 +1195,49 @@ body {
   position: relative;
 }
 
+.period-selector .option.promotion-5::after,
+.period-selector .option.promotion-10::after,
+.period-selector .option.promotion-20::after {
+  background-color: var(--accent-color); /* Amarelo Milho para badges */
+  color: var(--text-color); /* Texto padrão para badges */
+  font-weight: lighter !important;
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 11px;
+  z-index: 4;
+  position: absolute; /* Ajuste para todos os badges */
+  top: -6px; /* Posição padrão */
+  right: auto; /* Remover right fixo se não for global */
+}
+
 .period-selector .option.promotion-5::after {
   content: "5% OFF";
-  position: absolute;
-  top: -6px;
-  right: 48px;
-  font-weight: lighter !important;
-  background-color: var(--goiaba-beige-palha); /* Bege Palha */
-  color: var(--goiaba-red-tomate); /* Vermelho Tomate */
-  font-size: 10px;
-  padding: 1px 6px;
-  border-radius: 11px;
-  z-index: 4;
+  right: 48px; /* Posição ajustada */
 }
-
 .period-selector .option.promotion-10::after {
   content: "10% OFF";
-  position: absolute;
-  top: -6px;
-  right: 48px;
-  font-weight: lighter !important;
-  background-color: var(--goiaba-beige-palha); /* Bege Palha */
-  color: var(--goiaba-red-tomate); /* Vermelho Tomate */
-  font-size: 10px;
-  padding: 1px 6px;
-  border-radius: 11px;
-  z-index: 4;
+  right: 48px; /* Posição ajustada */
 }
-
 .period-selector .option.promotion-20::after {
   content: "20% OFF";
-  position: absolute;
-  top: -6px;
-  right: 43px;
-  font-weight: lighter !important;
-  background-color: var(--goiaba-beige-palha); /* Bege Palha */
-  color: var(--goiaba-red-tomate); /* Vermelho Tomate */
-  font-size: 10px;
-  padding: 1px 6px;
-  border-radius: 11px;
-  z-index: 4;
+  right: 43px; /* Posição ajustada */
 }
 
-/* para celular (dispositivos menores que 768px) */
+
+/* para celular (dispositivos menores que 767px) */
 @media (max-width: 767px) {
   .period-selector .option {
     padding: 12px 11px !important;
   }
-  .period-selector .option.promotion-5::after {
+  .period-selector .option.promotion-5::after{
     top: -10px;
     right: 24px;
   }
-  .period-selector .option.promotion-10::after {
+  .period-selector .option.promotion-10::after{
     top: -10px;
     right: 25px;
   }
-  .period-selector .option.promotion-20::after {
+  .period-selector .option.promotion-20::after{
     top: -10px;
     right: 17px;
   }
@@ -1211,17 +1251,17 @@ body {
   cursor: pointer;
   font-weight: bold;
   top: 13px;
-  color: var(--goiaba-marrom-terra); /* Marrom Terra */
+  color: var(--text-color); /* Texto padrão */
   z-index: 2;
   transition: color 0.4s ease, transform 0.4s ease;
 }
 
 .period-selector .option:hover {
-  color: var(--goiaba-azul-ceu-rural); /* Azul Céu Rural */
+  color: var(--primary-color); /* Vermelho Tomate */
 }
 
 .period-selector .option.active {
-  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
+  color: var(--white); /* Texto branco */
   z-index: 3;
 }
 
@@ -1231,7 +1271,7 @@ body {
   left: 10px;
   height: 80%;
   width: 24%;
-  background-color: var(--primary-color); /* Amarelo Milho */
+  background-color: var(--primary-color); /* Vermelho Tomate */
   border-radius: 21px;
   border-top-left-radius: 21px;
   border-top-right-radius: 21px;
@@ -1239,7 +1279,7 @@ body {
   border-bottom-left-radius: 21px;
   z-index: 1;
   transition: transform 0.4s ease-in-out, background-color 0.4s ease-in-out, box-shadow 0.4s ease;
-  box-shadow: 0 4px 20px rgba(247, 192, 69, 0.3); /* Sombra em Amarelo Milho com opacidade */
+  box-shadow: 0 4px 20px rgba(var(--primary-color-rgb, 217,75,58), 0.3); /* Sombra em Vermelho Tomate com opacidade */
 }
 
 .period-selector .option.active {
@@ -1248,31 +1288,31 @@ body {
 
 /* Estilos para a seção de filmes lançamentos */
 .top10-filmes-lancamentos-section {
-  background-color: var(--primary-color); /* Amarelo Milho */
+  background-color: var(--primary-color); /* Vermelho Tomate */
   padding: 50px 0;
   position: relative;
 }
 
 .top10-filmes-lancamentos-section h2 {
   font-size: 3rem;
-  color: var(--goiaba-marrom-terra); /* Marrom Terra */
+  color: var(--white); /* Texto branco */
 }
 
 .top10-filmes-lancamentos-section p {
   font-size: 1.1rem;
-  color: var(--goiaba-marrom-terra); /* Marrom Terra */
+  color: var(--white); /* Texto branco */
 }
 
 .top10-filmes-lancamentos-section .btn {
-  background-color: var(--goiaba-red-tomate); /* Vermelho Tomate */
+  background-color: var(--accent-color); /* Amarelo Milho */
   border: none;
-  color: var(--goiaba-beige-palha); /* Texto Bege Palha */
+  color: var(--text-color); /* Texto padrão */
   transition: background-color 0.3s ease;
 }
 
 .top10-filmes-lancamentos-section .btn:hover {
-  background-color: #B53F31; /* Tom mais escuro de Vermelho Tomate */
-  color: var(--goiaba-beige-palha); /* Manter texto Bege Palha */
+  background-color: var(--primary-color-hover); /* Vermelho Tomate Hover */
+  color: var(--white); /* Texto branco */
 }
 
 /* Estilo das imagens dentro do carousel */
@@ -1289,8 +1329,8 @@ body {
 
 .lucro-section {
   padding: 50px 0;
-  background-color: var(--goiaba-beige-palha); /* Fundo Bege Palha */
-  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
+  background-color: var(--background-color); /* Fundo claro geral */
+  color: var(--text-color); /* Texto padrão */
 }
 
 .lucro-section h2 {
@@ -1311,7 +1351,7 @@ body {
 
 .lucro-section ul li::before {
   content: "\2714";
-  color: var(--goiaba-green-folha); /* Verde Folha */
+  color: var(--highlight-color); /* Verde Folha */
   font-weight: bold;
   position: absolute;
   left: 0;
@@ -1319,10 +1359,10 @@ body {
 }
 
 .lucro-section .card {
-  background-color: var(--goiaba-yellow-milho); /* Amarelo Milho */
+  background-color: var(--accent-color); /* Amarelo Milho */
   border-radius: 10px;
   padding: 30px;
-  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
+  color: var(--text-color); /* Texto padrão */
 }
 
 .lucro-section .card h3 {
@@ -1336,8 +1376,8 @@ body {
 
 .lucro-section .star-icon {
   display: inline-block;
-  color: var(--goiaba-marrom-terra); /* Marrom Terra para o ícone */
-  background-color: var(--goiaba-yellow-milho); /* Amarelo Milho */
+  color: var(--text-color); /* Texto padrão */
+  background-color: var(--accent-color); /* Amarelo Milho */
   padding: 5px 8px;
   border-radius: 50%;
   margin-right: 10px;
@@ -1347,10 +1387,10 @@ body {
 
 @media (max-width: 768px) {
   .lucro-section {
-    background: var(--goiaba-beige-palha); /* Bege Palha */
+    background: var(--background-color); /* Fundo claro geral */
   }
   .lucro-section .card {
-    background-color: var(--goiaba-yellow-milho); /* Amarelo Milho */
+    background-color: var(--accent-color); /* Amarelo Milho */
     margin-top: 30px;
   }
 }
@@ -1358,12 +1398,12 @@ body {
 /* Seção de contadores */
 .stats-section {
   padding: 20px 0;
-  background-color: var(--goiaba-marrom-terra); /* Fundo Marrom Terra */
+  background-color: var(--text-color); /* Texto padrão para fundo (Marrom Escuro) */
 }
 
 .stats-section .stat-card {
-  background-color: var(--primary-color); /* Amarelo Milho */
-  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
+  background-color: var(--primary-color); /* Vermelho Tomate */
+  color: var(--white); /* Texto branco */
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -1379,12 +1419,12 @@ body {
   font-size: 48px;
   font-weight: bold;
   margin-bottom: 10px;
-  color: var(--goiaba-red-tomate); /* Vermelho Tomate */
+  color: var(--accent-color); /* Amarelo Milho */
 }
 
 .stat-description {
   font-size: 18px;
-  color: var(--goiaba-marrom-terra); /* Marrom Terra */
+  color: var(--white); /* Texto branco */
 }
 
 /* Responsividade */
@@ -1401,11 +1441,11 @@ body {
 .cardrevenda {
   border: none;
   border-radius: 10px;
-  background: var(--goiaba-beige-palha); /* Bege Palha */
-  color: var(--goiaba-marrom-terra); /* Marrom Terra */
+  background: var(--background-color); /* Fundo claro geral */
+  color: var(--text-color); /* Texto padrão */
 }
 .cardcreditos {
   border: none;
   border-radius: 10px;
-  background: var(--goiaba-beige-palha); /* Bege Palha */
+  background: var(--background-color); /* Fundo claro geral */
 }
