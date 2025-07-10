@@ -1,26 +1,36 @@
 :root {
-  --primary-color: #580050;
-  --primary-color-hover : #a30090;
+  /* Novas variáveis de cor GoiabaPlay */
+  --goiaba-yellow-milho: #F7C045;
+  --goiaba-yellow-milho-hover: #E0B03F; /* Tom mais escuro para hover */
+  --goiaba-red-tomate: #D94B3A;
+  --goiaba-green-folha: #4A8B50;
+  --goiaba-marrom-terra: #7A4E2F;
+  --goiaba-beige-palha: #F4E4C1;
+  --goiaba-azul-ceu-rural: #4A90E2;
+
+  /* Redefinindo as variáveis primárias do seu tema para a nova paleta */
+  --primary-color: var(--goiaba-yellow-milho);
+  --primary-color-hover: var(--goiaba-yellow-milho-hover);
 }
 
 body {
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
-  color: #5a5959;
+  background-color: var(--goiaba-beige-palha); /* Fundo principal Bege Palha */
+  color: var(--goiaba-marrom-terra); /* Cor padrão do texto Marrom Terra */
 }
 
 .bg-primary {
-  background-color: var(--primary-color) !important;
+  background-color: var(--primary-color) !important; /* Amarelo Milho */
 }
 
 .bg-light {
-  background-color: #ffffff !important;
+  background-color: var(--goiaba-beige-palha) !important; /* Bege Palha para light */
 }
 
 .form-control::placeholder {
-  color: rgba(202, 202, 202, 0.75);
+  color: rgba(122, 78, 47, 0.75); /* Placeholder em tom de Marrom Terra */
   opacity: 1;
 }
 
@@ -28,18 +38,18 @@ body {
 .header {
   position: absolute;
   top: 20px;
-  width: 100%; /* O header ocupa 100% da largura da página */
+  width: 100%;
   display: flex;
-  justify-content: center; /* Centraliza o conteúdo do header */
-  background-color: rgba(248, 248, 248, 0.73);
+  justify-content: center;
+  background-color: rgba(244, 228, 193, 0.73); /* Beige Palha com transparência */
   padding: 15px 0;
   z-index: 1000;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.btn-primary{
-  background-color: var(--primary-color);
-  color: white;
+.btn-primary {
+  background-color: var(--primary-color); /* Amarelo Milho */
+  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
   padding: 10px 20px;
   border-radius: 30px;
   border: none;
@@ -47,8 +57,8 @@ body {
   transition: background-color 0.3s ease;
   margin-left: auto;
 }
-.btn-primary:hover{
-  background-color: var(--primary-color-hover) !important;
+.btn-primary:hover {
+  background-color: var(--primary-color-hover) !important; /* Amarelo Milho Hover */
 }
 
 /* Centralização do conteúdo dentro do header */
@@ -56,9 +66,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%; /* Defina o tamanho menor que 100% para manter margens nos lados */
-  max-width: 1200px; /* Define uma largura máxima */
-  margin: 0 auto; /* Centraliza o conteúdo dentro do header */
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Estilo da logo */
@@ -77,7 +87,7 @@ body {
 /* Links do menu */
 .nav-menu a {
   text-decoration: none;
-  color: #333;
+  color: var(--goiaba-marrom-terra); /* Marrom Terra para links do menu */
   font-weight: bold;
   padding: 10px 15px;
   transition: color 0.3s ease;
@@ -85,13 +95,13 @@ body {
 
 /* Efeito hover nos links do menu */
 .nav-menu a:hover {
-  color: var(--primary-color-hover);
+  color: var(--goiaba-azul-ceu-rural); /* Azul Céu Rural para hover */
 }
 
 /* Estilo do botão Painel Cliente */
 .header .btn-cliente {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: var(--primary-color); /* Amarelo Milho */
+  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
   padding: 10px 20px;
   border-radius: 30px;
   border: none;
@@ -102,7 +112,7 @@ body {
 
 /* Hover no botão */
 .header .btn-cliente:hover {
-  background-color: var(--primary-color-hover);
+  background-color: var(--primary-color-hover); /* Amarelo Milho Hover */
 }
 
 /* Menu Responsivo */
@@ -123,7 +133,7 @@ body {
 @media (max-width: 992px) {
   .header {
     position: absolute;
-    background: #ffffffa1;
+    background: rgba(244, 228, 193, 0.95); /* Beige Palha com mais opacidade */
     border-radius: 0 !important;
     display: flex;
     justify-content: space-between;
@@ -143,17 +153,17 @@ body {
   /* Exibe o botão de offcanvas (menu) no meio */
   .header .offcanvas-toggler {
     display: block;
-    background: var(--primary-color);
-    color: white;
+    background: var(--primary-color); /* Amarelo Milho */
+    color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
     padding: 10px 20px;
     border-radius: 30px;
-    order: 2; /* Define a ordem para ficar no meio */
+    order: 2;
   }
 
   /* Botão "Painel Cliente" no final (esquerdo) */
   .header .btn-cliente {
-    order: 3; /* Define a ordem para ficar à direita */
-    margin-left: auto; /* Move o botão "Painel Cliente" para o final */
+    order: 3;
+    margin-left: auto;
   }
 
   /* Inverte a posição dos elementos */
@@ -171,36 +181,38 @@ body {
 }
 
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%2872,72,72,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28122,78,47,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Marrom Terra para o ícone do toggler */
   width: 30px;
   height: 30px;
 }
 
 .offcanvas-body {
-  background: #c6c6c6;
+  background: var(--goiaba-beige-palha); /* Bege Palha */
 }
 
 .header .btn-cliente:hover {
-  background-color: var(--primary-color-hover);
+  background-color: var(--primary-color-hover); /* Amarelo Milho Hover */
 }
 
 /* Offcanvas Menu */
 .offcanvas-header {
-  background-color: var(--primary-color);
+  background-color: var(--goiaba-yellow-milho); /* Amarelo Milho */
 }
 
 .offcanvas-title {
-  color: #fff;
+  color: var(--goiaba-marrom-terra); /* Título do Offcanvas em Marrom Terra */
 }
 .btn-close-white {
-  background-color: transparent; /* Remove o fundo */
-  filter: invert(1); /* Para garantir que o X fique branco */
-  width: 1.5rem; /* Ajuste o tamanho se necessário */
+  background-color: transparent;
+  filter: invert(0); /* Remover invert para que o X seja escuro no fundo amarelo */
+  width: 1.5rem;
   height: 1.5rem;
+  color: var(--goiaba-marrom-terra); /* Cor do X em Marrom Terra */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%237A4E2F'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e"); /* X em Marrom Terra */
 }
 
 .offcanvas-body a {
-  color: var(--primary-color);
+  color: var(--goiaba-marrom-terra); /* Marrom Terra para links do offcanvas */
   font-weight: 500;
   display: block;
   margin-bottom: 15px;
@@ -209,67 +221,62 @@ body {
 }
 
 
-/* Alterar o fundo e cor do texto do cabeçalho */
+/* Alterar o fundo e cor do texto do cabeçalho do acordeão (FAQ) */
 .accordion-header .accordion-button {
-  background-color: #ffffff; 
-  color: var(--primary-color);
+  background-color: var(--goiaba-beige-palha); /* Fundo Bege Palha */
+  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
   border: none;
 }
 
 /* Cor padrão da seta do acordeão */
 .accordion-button::after {
   content: "";
-  background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns%3d%27http%3a//www.w3.org/2000/svg%27 fill%3d%27%23ffffff%27 viewBox%3d%270 0 16 16%27%3e%3cpath fill-rule%3d%27evenodd%27 d%3d%27M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z%27/%3e%3c/svg%3e');
+  background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns%3d%27http%3a//www.w3.org/2000/svg%27 fill%3d%27%237A4E2F%27 viewBox%3d%270 0 16 16%27%3e%3cpath fill-rule%3d%27evenodd%27 d%3d%27M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z%27/%3e%3c/svg%3e'); /* Seta em Marrom Terra */
   transform: rotate(0deg);
   transition: transform 0.2s ease-in-out;
 }
 
 /* Cor e rotação da seta quando o acordeão está aberto */
 .accordion-button:not(.collapsed)::after {
-  background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns%3d%27http%3a//www.w3.org/2000/svg%27 fill%3d%27%23FFD700%27 viewBox%3d%270 0 16 16%27%3e%3cpath fill-rule%3d%27evenodd%27 d%3d%27M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z%27/%3e%3c/svg%3e');
+  background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns%3d%27http%3a//www.w3.org/2000/svg%27 fill%3d%27%23F7C045%27 viewBox%3d%270 0 16 16%27%3e%3cpath fill-rule%3d%27evenodd%27 d%3d%27M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z%27/%3e%3c/svg%3e'); /* Seta em Amarelo Milho */
   transform: rotate(180deg);
 }
 
-
 .accordion-header .accordion-button:not(.collapsed) {
-  background-color: var(--primary-color);
-  color: #ffffff; 
-  box-shadow: none; 
+  background-color: var(--primary-color); /* Amarelo Milho */
+  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
+  box-shadow: none;
 }
-
 
 .accordion-button.collapsed {
-  background-color: #E1E1E1;
-  color: var(--primary-color);
+  background-color: var(--goiaba-beige-palha); /* Bege Palha */
+  color: var(--goiaba-marrom-terra); /* Marrom Terra */
 }
-
 
 /* Estilizar o corpo do acordeão */
 .accordion-body {
-  background-color: #ffffff; 
-  color: #333; 
+  background-color: #ffffff; /* Fundo do corpo do acordeão (pode ser Bege Palha) */
+  color: var(--goiaba-marrom-terra); /* Marrom Terra */
   padding: 20px;
-  border-top: 1px solid var(--primary-color);
+  border-top: 1px solid var(--primary-color); /* Amarelo Milho */
 }
 
 /* Personalizar a borda do item do acordeão */
 .accordion-item {
   border: none;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
-
-
 
 /* Alterar a cor da borda da seta ícone */
 .accordion-button::after {
-  color: #ffffff;
-  font-size: 1.2rem; 
+  color: var(--goiaba-marrom-terra); /* Marrom Terra para a cor da seta */
+  font-size: 1.2rem;
 }
 
 /* Alterar hover e foco */
 .accordion-button:hover, .accordion-button:focus {
-  background-color: var(--primary-color);
-  color: white; 
+  background-color: var(--primary-color); /* Amarelo Milho */
+  color: var(--goiaba-marrom-terra); /* Marrom Terra */
 }
 /* Adicionar uma transição suave para a abertura */
 .accordion-button {
@@ -280,9 +287,7 @@ body {
   transition: all 0.3s ease;
 }
 
-
-
-/* Animacoes de Slide */
+/* Animacoes de Slide (manter as mesmas) */
 .slide-in-left {
   opacity: 0;
   transform: translateX(-100%);
@@ -310,28 +315,24 @@ body {
 .slide-in-bottom {
   opacity: 0;
   transform: translateY(100%);
-  /* Inicia fora da tela, vindo de baixo */
   transition: all 0.9s ease-in-out;
 }
 
 .slide-in-bottom.show {
   opacity: 1;
   transform: translateY(0);
-  /* Finaliza no local original */
 }
 
 /* Slide de cima para baixo */
 .slide-in-top {
   opacity: 0;
   transform: translateY(-100%);
-  /* Inicia fora da tela, vindo de cima */
   transition: all 0.9s ease-in-out;
 }
 
 .slide-in-top.show {
   opacity: 1;
   transform: translateY(0);
-  /* Finaliza no local original */
 }
 
 /* Hero Section */
@@ -339,12 +340,11 @@ body {
   position: relative;
   height: 692px;
   background-image: url("../images/gma_iptv_fundo.webp");
-  /* Substitua com seu URL */
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
-  color: #fff;
+  color: var(--goiaba-beige-palha); /* Texto branco/claro no hero */
   padding: 0 15px;
 }
 
@@ -355,7 +355,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), #181718);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), var(--goiaba-marrom-terra)); /* Gradiente para Marrom Terra */
   z-index: 1;
 }
 
@@ -368,7 +368,7 @@ body {
 
 .hero-content2 {
   position: relative;
-  z-index: 2;  
+  z-index: 2;
   margin-top: 163px;
 }
 
@@ -376,32 +376,32 @@ body {
   font-size: 38px;
   font-weight: bold;
   margin-bottom: 10px;
+  color: var(--goiaba-yellow-milho); /* Título Hero em Amarelo Milho */
 }
 
 .hero p {
   font-size: 17px;
   margin-bottom: 30px;
   line-height: 1.5;
+  color: var(--goiaba-beige-palha); /* Texto Hero em Beige Palha */
 }
 
 .hero a {
-  background-color: var(--primary-color);
-  color: #fff;
+  background-color: var(--primary-color); /* Amarelo Milho para CTA */
+  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
   padding: 18px 28px;
   border-radius: 30px;
   border: none;
-  cursor: pointer;  
+  cursor: pointer;
   font-size: 15px;
   margin-bottom: 32px;
   transition: background-color 0.3s ease;
 }
 
 .hero a:hover {
-  background-color: var(--primary-color-hover);
-  color: #fff;
+  background-color: var(--primary-color-hover); /* Amarelo Milho Hover */
+  color: var(--goiaba-marrom-terra); /* Manter texto Marrom Terra */
 }
-
-
 
 .hero-image {
   position: relative;
@@ -423,9 +423,9 @@ body {
   background-position: center;
   display: flex;
   align-items: center;
-  color: #fff;
+  color: var(--goiaba-beige-palha); /* Texto Bege Palha */
   padding: 0 15px;
-  padding-top: 60px; /* Adiciona um espaçamento superior para não sobrepor o header */
+  padding-top: 60px;
 }
 
 /* Sobreposição para a imagem de fundo */
@@ -447,13 +447,13 @@ body {
   background-color: transparent;
   margin-bottom: -6rem;
   font-size: 0.9rem;
-  color: #fff;
+  color: var(--goiaba-beige-palha); /* Bege Palha */
   margin-top: 95px;
 }
 
 .breadcrumb a {
   text-decoration: none;
-  color: #f8f9fa; /* Cor do link do breadcrumb */
+  color: var(--goiaba-beige-palha); /* Bege Palha */
 }
 
 .breadcrumb a:hover {
@@ -461,11 +461,11 @@ body {
 }
 
 .breadcrumb-item.active {
-  color: #a40080; /* Cor para o item ativo no breadcrumb */
+  color: var(--goiaba-yellow-milho); /* Amarelo Milho para item ativo */
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
-  color: #c1c1c1 !important;
+  color: var(--goiaba-beige-palha) !important; /* Separador em Bege Palha */
 }
 
 /* Conteúdo do Hero */
@@ -473,44 +473,42 @@ body {
   position: relative;
   z-index: 2;
   max-width: 600px;
-  color: #fff;
+  color: var(--goiaba-beige-palha); /* Bege Palha */
 }
 
 .hero-secondary h1 {
   font-size: 32px;
   font-weight: 700;
-  color: #fff;
+  color: var(--goiaba-yellow-milho); /* Amarelo Milho */
   margin-bottom: 10px;
 }
 
 .hero-secondary p {
   font-size: 1.125rem;
   line-height: 1.5;
-  color: #e0e0e0;
+  color: var(--goiaba-beige-palha); /* Bege Palha */
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
   .hero-secondary {
-      padding: 20px;
+    padding: 20px;
   }
 
   .hero-secondary h1 {
-      font-size: 2rem;
+    font-size: 2rem;
   }
 
   .hero-secondary p {
-      font-size: 1rem;
+    font-size: 1rem;
   }
 }
 
-
-
 /* Section Icons Below Hero */
 .icon-section {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color); /* Amarelo Milho */
   padding: 4px 0;
-  color: #fff;
+  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
   text-align: center;
 }
 
@@ -525,7 +523,7 @@ body {
 .icon-box {
   flex: 1;
   padding: 3px;
-  border-right: 1px solid var(--primary-color-hover);
+  border-right: 1px solid var(--primary-color-hover); /* Amarelo Milho Hover */
 }
 
 .icon-box:last-child {
@@ -573,7 +571,7 @@ body {
 
   .icon-box {
     border-right: none;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid var(--goiaba-marrom-terra); /* Borda Marrom Terra */
     margin-bottom: 15px;
   }
 
@@ -583,29 +581,27 @@ body {
 }
 
 /* Seção de Planos */
-/* Seção de Planos com imagem de fundo full-width */
 .planos-iptv-section {
   position: relative;
   width: 100%;
   height: 400px;
   background-image: url("../images/fundoprecos.webp");
-  /* Substitua pela sua imagem */
   background-size: cover;
   background-position: bottom;
 }
 
 .destaque {
-  background-color: var(--primary-color) !important;
-  color: #fff !important;
+  background-color: var(--goiaba-red-tomate) !important; /* Vermelho Tomate */
+  color: var(--goiaba-beige-palha) !important; /* Texto Bege Palha */
 }
 
 .destaque .price {
-  color: #fff !important;
+  color: var(--goiaba-beige-palha) !important; /* Preço Bege Palha */
 }
 
 .destaque .btn {
-  background-color: #fff !important;
-  color: var(--primary-color) !important;
+  background-color: var(--goiaba-beige-palha) !important; /* Botão Bege Palha */
+  color: var(--goiaba-red-tomate) !important; /* Texto Vermelho Tomate */
 }
 
 /* Adicionando uma camada de sobreposição escura */
@@ -617,18 +613,14 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.79);
-  /* Escurece a imagem com 70% de opacidade */
   z-index: 1;
-  /* Garante que o conteúdo esteja acima da sobreposição */
 }
 
 /* Conteúdo dentro da seção */
 .planos-iptv-section .content {
   position: relative;
   z-index: 2;
-  /* Garante que o conteúdo esteja acima da sobreposição */
-  color: #fff;
-  /* Texto branco para melhor contraste */
+  color: var(--goiaba-beige-palha); /* Bege Palha */
   text-align: center;
   padding: 20px;
 }
@@ -642,17 +634,17 @@ body {
 .planos-cards h2,
 .planos-cards p,
 .planos-cards label {
-  color: #fff;
+  color: var(--goiaba-marrom-terra); /* Títulos e textos em Marrom Terra */
 }
 
 /* Estilo dos cards */
 .plan-card {
-  background-color: #fff;
+  background-color: #fff; /* Manter branco para contraste com o plano de fundo */
   border-radius: 10px;
   padding: 30px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   text-align: center;
-  border-top: 5px solid var(--primary-color);
+  border-top: 5px solid var(--primary-color); /* Amarelo Milho */
 }
 
 /* Margem para desktop (telas maiores que 768px) */
@@ -670,17 +662,18 @@ body {
 }
 
 .plan-card p {
-  color: #5a5959;
+  color: var(--goiaba-marrom-terra); /* Marrom Terra */
 }
 
 .plan-card h3 {
   font-size: 24px;
   margin-bottom: 10px;
+  color: var(--goiaba-red-tomate); /* Títulos dos planos em Vermelho Tomate */
 }
 
 .plan-card .price {
   font-size: 28px;
-  color: var(--primary-color);
+  color: var(--goiaba-red-tomate); /* Preços em Vermelho Tomate */
   margin-bottom: 20px;
 }
 
@@ -689,6 +682,7 @@ body {
   padding: 0;
   text-align: left;
   font-size: 14px;
+  color: var(--goiaba-marrom-terra); /* Texto da lista em Marrom Terra */
 }
 
 .plan-card ul li {
@@ -698,8 +692,8 @@ body {
 .plan-card ul li:before {
   content: "✔";
   margin-right: 10px;
-  color: #fff;
-  background-color: #029736;
+  color: var(--goiaba-beige-palha); /* Bege Palha */
+  background-color: var(--goiaba-green-folha); /* Verde Folha */
   border-radius: 50%;
   padding: 5px;
   font-weight: bold;
@@ -711,12 +705,11 @@ body {
 }
 
 /* Estilos para itens indisponíveis */
-/* Estilos para itens indisponíveis com círculo */
 .plan-card ul li.unavailable:before {
   content: "✘";
   margin-right: 10px;
-  color: #fff;
-  background-color: #d00a2e;
+  color: var(--goiaba-beige-palha); /* Bege Palha */
+  background-color: var(--goiaba-red-tomate); /* Vermelho Tomate */
   border-radius: 50%;
   padding: 5px;
   font-weight: bold;
@@ -728,8 +721,8 @@ body {
 }
 
 .plan-card .btn {
-  background-color: var(--primary-color);
-  color: #fff;
+  background-color: var(--goiaba-red-tomate); /* Vermelho Tomate */
+  color: var(--goiaba-beige-palha); /* Texto Bege Palha */
   padding: 10px 20px;
   border-radius: 30px;
   text-transform: uppercase;
@@ -741,7 +734,6 @@ body {
 @media (max-width: 768px) {
   .planos-cards {
     top: -50px;
-    /* Ajusta a sobreposição para mobile */
   }
 
   .plan-card {
@@ -770,29 +762,31 @@ body {
 
 /* Garantia */
 .guarantee {
-  color: var(--primary-color);
+  color: var(--primary-color); /* Amarelo Milho */
   font-weight: 500;
   margin-top: 20px;
 }
 
 /* Footer */
 .footer {
-  background-color: #232020;
-  color: #ffffff;
+  background-color: var(--goiaba-marrom-terra); /* Marrom Terra */
+  color: var(--goiaba-beige-palha); /* Texto Bege Palha */
 }
 
 .footer h5 {
   font-size: 16px;
   margin-bottom: 20px;
+  color: var(--goiaba-yellow-milho); /* Títulos do footer em Amarelo Milho */
 }
 
 .footer a {
-  color: #62e078;
+  color: var(--goiaba-beige-palha); /* Links do footer em Bege Palha */
   text-decoration: none;
 }
 
 .footer a:hover {
   text-decoration: underline;
+  color: var(--goiaba-azul-ceu-rural); /* Links do footer em Azul Céu Rural no hover */
 }
 
 .footer p {
@@ -807,8 +801,8 @@ body {
 .fa-twitter,
 .fa-instagram,
 .fa-linkedin {
-  background-color: #62e078;
-  color: white;
+  background-color: var(--goiaba-yellow-milho); /* Amarelo Milho */
+  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
   padding: 10px;
   border-radius: 50%;
 }
@@ -817,7 +811,7 @@ body {
   border: none;
   width: 100%;
   height: 1px;
-  background-color: #847a83;
+  background-color: rgba(122, 78, 47, 0.5); /* Marrom Terra com opacidade */
   opacity: inherit !important;
 }
 
@@ -835,7 +829,7 @@ body {
 
 /* Estilo para os cards de pagamento e segurança */
 .payment-card {
-  background-color: #ffffff;
+  background-color: #ffffff; /* Manter branco ou ajustar se quiser */
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -847,29 +841,29 @@ body {
 }
 
 .payment-card img {
-  max-height: 60px; /* Altura máxima para as imagens */
-  max-width: 100%; /* Garante que as imagens não ultrapassem o card */
+  max-height: 60px;
+  max-width: 100%;
   object-fit: contain;
 }
 
 .payment-card:hover {
-  transform: scale(1.05); /* Efeito hover */
+  transform: scale(1.05);
 }
 
 /* Ajustes responsivos */
 @media (max-width: 768px) {
   .payment-card {
-    height: 80px; /* Reduz a altura dos cards no celular */
+    height: 80px;
   }
 
   .payment-card img {
-    max-height: 50px; /* Reduz o tamanho das imagens no celular */
+    max-height: 50px;
   }
 }
 
 .copyright {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: var(--goiaba-marrom-terra); /* Marrom Terra */
+  color: var(--goiaba-beige-palha); /* Texto Bege Palha */
   width: 100%;
   padding: 20px 0;
 }
@@ -887,26 +881,26 @@ body {
 }
 
 .bg-custom {
-  background-color: #232020;
-  color: #ffffff;
+  background-color: var(--goiaba-green-folha); /* Verde Folha */
+  color: var(--goiaba-beige-palha); /* Texto Bege Palha */
 }
 
 .card {
   border: none;
   border-radius: 10px;
-  background: var(--primary-color);
+  background: var(--goiaba-yellow-milho); /* Amarelo Milho para cards internos */
 }
 
 .icon-box p.text-smaller {
   font-size: 12px;
   margin-top: 10px;
-  color: #e0e0e0;
-  /* Cor ajustada para um contraste menor */
+  color: var(--goiaba-marrom-terra); /* Marrom Terra para texto menor */
 }
 
 .card p.font-weight-bold {
   font-size: 16px;
   font-weight: bold;
+  color: var(--goiaba-marrom-terra); /* Marrom Terra para texto bold */
 }
 
 .icon-box svg {
@@ -936,19 +930,28 @@ body {
 }
 
 .compativel {
-  background: var(--primary-color);
+  background: var(--goiaba-green-folha); /* Verde Folha */
   border-radius: 29px;
   padding: 39px;
-  color: white;
+  color: var(--goiaba-beige-palha); /* Texto Bege Palha */
 }
+.compativel h2 {
+    color: var(--goiaba-yellow-milho); /* Títulos em Amarelo Milho */
+}
+.compativel p {
+    color: var(--goiaba-beige-palha); /* Texto em Bege Palha */
+}
+
 
 .diferenciais {
-  background: var(--primary-color);
+  background: var(--goiaba-red-tomate); /* Vermelho Tomate */
   border-radius: 29px;
   padding: 39px;
-  color: white;
+  color: var(--goiaba-beige-palha); /* Texto Bege Palha */
 }
-
+.diferenciais h2 {
+    color: var(--goiaba-yellow-milho); /* Títulos em Amarelo Milho */
+}
 .diferenciais li {
   margin-bottom: 21px;
   margin-top: 20px;
@@ -958,37 +961,33 @@ body {
 @media (max-width: 767px) {
   .diferenciais {
     margin-top: 30px;
-    /* Ajuste o valor conforme necessário */
   }
 }
 
 /* Carrosel Avaliaçoes */
-
-/* Carrosel Avaliaçoes */
-
 .carousel-inner {
-  background-color: #f9f9f9;
+  background-color: var(--goiaba-beige-palha); /* Bege Palha */
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  max-width: 100%; /* Garante que o conteúdo do carrossel não ultrapasse a tela */
-  overflow: hidden; /* Evita que o conteúdo extrapole */
-  display: flex; /* Adiciona flex para centralizar */
-  justify-content: center; /* Centraliza os itens horizontalmente */
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
   position: relative;
 }
 
 .carousel-item {
   text-align: center;
-  color: #333;
-  max-width: 80%; /* Limita a largura máxima do texto */
-  margin: 0 auto; /* Centraliza o conteúdo */
+  color: var(--goiaba-marrom-terra); /* Marrom Terra */
+  max-width: 80%;
+  margin: 0 auto;
 }
 
 .carousel-item p {
   font-size: 18px;
   font-weight: 400;
-  word-wrap: break-word; /* Garante que o texto não ultrapasse os limites do container */
+  word-wrap: break-word;
 }
 
 .carousel-item img {
@@ -996,19 +995,19 @@ body {
   height: 100px;
   object-fit: cover;
   margin-bottom: 20px;
-  border-radius: 50%; /* Adiciona bordas arredondadas para as imagens */
+  border-radius: 50%;
 }
 
 .carousel-item span {
   display: block;
   font-weight: 600;
   margin-top: 15px;
-  color: var(--primary-color);
+  color: var(--goiaba-azul-ceu-rural); /* Azul Céu Rural */
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color); /* Amarelo Milho */
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -1018,23 +1017,23 @@ body {
 .carousel-control-next {
   width: 5%;
   position: absolute;
-  top: 50%; /* Centraliza verticalmente os controles */
+  top: 50%;
   transform: translateY(-50%);
 }
 
 .carousel-indicators {
-  bottom: -20px; /* Aumenta o espaço entre o conteúdo e os indicadores */
+  bottom: -20px;
 }
 
 .carousel-indicators [data-bs-target] {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color); /* Amarelo Milho */
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
   .carousel-item p {
     font-size: 16px;
-    max-width: 90%; /* Ajuste para telas menores */
+    max-width: 90%;
     margin: 0 auto;
   }
 
@@ -1046,13 +1045,12 @@ body {
 
   .carousel-control-prev,
   .carousel-control-next {
-    top: 45%; /* Ajusta a posição dos controles em telas menores */
+    top: 45%;
   }
 }
 
 .iptv-section {
- 
-  color: #434343;
+  color: var(--goiaba-marrom-terra); /* Marrom Terra */
 }
 
 .iptv-image {
@@ -1068,11 +1066,13 @@ body {
   font-size: 28px;
   font-weight: bold;
   margin-bottom: 20px;
+  color: var(--goiaba-red-tomate); /* Vermelho Tomate */
 }
 
 .iptv-section p {
   font-size: 16px;
   line-height: 1.5;
+  color: var(--goiaba-marrom-terra); /* Marrom Terra */
 }
 
 .features {
@@ -1086,19 +1086,21 @@ body {
 
 .feature p {
   font-size: 14px;
+  color: var(--goiaba-marrom-terra); /* Marrom Terra */
+}
+.feature p strong {
+    color: var(--goiaba-red-tomate); /* Destaque em Vermelho Tomate */
 }
 
 /* Margem no topo para celular (dispositivos menores que 768px) */
 @media (max-width: 767px) {
   .iptv-text {
     margin-top: 30px;
-    /* Ajuste o valor conforme necessário */
   }
 }
 
-
 .benefit-card {
-  background-color: #f8f9fa;
+  background-color: var(--goiaba-beige-palha); /* Bege Palha */
   border: none;
   transition: transform 0.3s ease;
 }
@@ -1114,7 +1116,7 @@ body {
 
 .parallax-section {
   background: url('/static/images/parallax-image.jpg') center center/cover no-repeat;
-  color: white;
+  color: var(--goiaba-beige-palha); /* Bege Palha */
   padding: 60px 0;
 }
 
@@ -1125,13 +1127,13 @@ body {
 .period-selector {
   position: relative;
   display: flex;
-  justify-content: space-between; /* Ajusta o espaçamento entre os itens */
-  background-color: #f1f1f1ad;
+  justify-content: space-between;
+  background-color: rgba(244, 228, 193, 0.73); /* Bege Palha com transparência */
   border-radius: 30px;
-  padding: 10px 15px; /* Ajuste de padding para centralizar e espaçar os itens */
-  margin: 0 auto; /* Centraliza o elemento na página */
-  max-width: 600px; /* Define uma largura máxima */
-  width: 100%; /* Ocupa toda a largura disponível */
+  padding: 10px 15px;
+  margin: 0 auto;
+  max-width: 600px;
+  width: 100%;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -1146,8 +1148,8 @@ body {
   top: -6px;
   right: 48px;
   font-weight: lighter !important;
-  background-color: #d8d8d8;
-  color: #960303;
+  background-color: var(--goiaba-beige-palha); /* Bege Palha */
+  color: var(--goiaba-red-tomate); /* Vermelho Tomate */
   font-size: 10px;
   padding: 1px 6px;
   border-radius: 11px;
@@ -1160,8 +1162,8 @@ body {
   top: -6px;
   right: 48px;
   font-weight: lighter !important;
-  background-color: #d8d8d8;
-  color: #960303;
+  background-color: var(--goiaba-beige-palha); /* Bege Palha */
+  color: var(--goiaba-red-tomate); /* Vermelho Tomate */
   font-size: 10px;
   padding: 1px 6px;
   border-radius: 11px;
@@ -1174,55 +1176,52 @@ body {
   top: -6px;
   right: 43px;
   font-weight: lighter !important;
-  background-color: #d8d8d8;
-  color: #960303;
+  background-color: var(--goiaba-beige-palha); /* Bege Palha */
+  color: var(--goiaba-red-tomate); /* Vermelho Tomate */
   font-size: 10px;
   padding: 1px 6px;
   border-radius: 11px;
   z-index: 4;
 }
 
-
-
-
-/*  para celular (dispositivos menores que 768px) */
+/* para celular (dispositivos menores que 768px) */
 @media (max-width: 767px) {
   .period-selector .option {
     padding: 12px 11px !important;
   }
-  .period-selector .option.promotion-5::after{
+  .period-selector .option.promotion-5::after {
     top: -10px;
     right: 24px;
   }
-  .period-selector .option.promotion-10::after{
+  .period-selector .option.promotion-10::after {
     top: -10px;
     right: 25px;
   }
-  .period-selector .option.promotion-20::after{
+  .period-selector .option.promotion-20::after {
     top: -10px;
     right: 17px;
-  }  
+  }
 }
 
 .period-selector .option {
   position: relative;
-  flex: 1; /* Faz com que cada opção ocupe um espaço igual */
-  text-align: center; /* Centraliza o texto dentro de cada botão */
+  flex: 1;
+  text-align: center;
   padding: 12px 20px;
   cursor: pointer;
   font-weight: bold;
   top: 13px;
-  color: #333;
+  color: var(--goiaba-marrom-terra); /* Marrom Terra */
   z-index: 2;
   transition: color 0.4s ease, transform 0.4s ease;
 }
 
 .period-selector .option:hover {
-  color: var(--primary-color-hover);
+  color: var(--goiaba-azul-ceu-rural); /* Azul Céu Rural */
 }
 
 .period-selector .option.active {
-  color: white;
+  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
   z-index: 3;
 }
 
@@ -1232,16 +1231,15 @@ body {
   left: 10px;
   height: 80%;
   width: 24%;
-  background-color: var(--primary-color);
+  background-color: var(--primary-color); /* Amarelo Milho */
   border-radius: 21px;
   border-top-left-radius: 21px;
   border-top-right-radius: 21px;
   border-bottom-right-radius: 21px;
   border-bottom-left-radius: 21px;
   z-index: 1;
-  transition: transform 0.4s ease-in-out, background-color 0.4s ease-in-out,
-    box-shadow 0.4s ease;
-  box-shadow: 0 4px 20px rgba(114, 0, 103, 0.3);
+  transition: transform 0.4s ease-in-out, background-color 0.4s ease-in-out, box-shadow 0.4s ease;
+  box-shadow: 0 4px 20px rgba(247, 192, 69, 0.3); /* Sombra em Amarelo Milho com opacidade */
 }
 
 .period-selector .option.active {
@@ -1250,31 +1248,31 @@ body {
 
 /* Estilos para a seção de filmes lançamentos */
 .top10-filmes-lancamentos-section {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color); /* Amarelo Milho */
   padding: 50px 0;
   position: relative;
 }
 
 .top10-filmes-lancamentos-section h2 {
   font-size: 3rem;
-  color: #ffffff;
+  color: var(--goiaba-marrom-terra); /* Marrom Terra */
 }
 
 .top10-filmes-lancamentos-section p {
   font-size: 1.1rem;
-  color: #ffffff;
+  color: var(--goiaba-marrom-terra); /* Marrom Terra */
 }
 
 .top10-filmes-lancamentos-section .btn {
-  background-color: #fff;
+  background-color: var(--goiaba-red-tomate); /* Vermelho Tomate */
   border: none;
-  color: var(--primary-color);
+  color: var(--goiaba-beige-palha); /* Texto Bege Palha */
   transition: background-color 0.3s ease;
 }
 
 .top10-filmes-lancamentos-section .btn:hover {
-  background-color: var(--primary-color-hover);
-  color: #fff;
+  background-color: #B53F31; /* Tom mais escuro de Vermelho Tomate */
+  color: var(--goiaba-beige-palha); /* Manter texto Bege Palha */
 }
 
 /* Estilo das imagens dentro do carousel */
@@ -1289,16 +1287,15 @@ body {
   transform: scale(1.05);
 }
 
-
 .lucro-section {
- 
   padding: 50px 0;
+  background-color: var(--goiaba-beige-palha); /* Fundo Bege Palha */
+  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
 }
 
 .lucro-section h2 {
   margin-bottom: 20px;
 }
-
 
 .lucro-section ul {
   list-style: none;
@@ -1314,7 +1311,7 @@ body {
 
 .lucro-section ul li::before {
   content: "\2714";
-  color: green;
+  color: var(--goiaba-green-folha); /* Verde Folha */
   font-weight: bold;
   position: absolute;
   left: 0;
@@ -1322,13 +1319,13 @@ body {
 }
 
 .lucro-section .card {
-  background-color: var (--primary-color);
-
+  background-color: var(--goiaba-yellow-milho); /* Amarelo Milho */
   border-radius: 10px;
   padding: 30px;
+  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
 }
 
-.lucro-section .card h3 { 
+.lucro-section .card h3 {
   font-weight: 700;
   margin-bottom: 20px;
 }
@@ -1339,7 +1336,8 @@ body {
 
 .lucro-section .star-icon {
   display: inline-block;
-  color: #fff;
+  color: var(--goiaba-marrom-terra); /* Marrom Terra para o ícone */
+  background-color: var(--goiaba-yellow-milho); /* Amarelo Milho */
   padding: 5px 8px;
   border-radius: 50%;
   margin-right: 10px;
@@ -1349,66 +1347,65 @@ body {
 
 @media (max-width: 768px) {
   .lucro-section {
-      background: #f0f0f0;
+    background: var(--goiaba-beige-palha); /* Bege Palha */
   }
   .lucro-section .card {
-      background-color: #6610f2;
-      margin-top: 30px;
+    background-color: var(--goiaba-yellow-milho); /* Amarelo Milho */
+    margin-top: 30px;
   }
 }
 
-
-  /* Seção de contadores */
-  .stats-section {  
-    padding: 20px 0;
+/* Seção de contadores */
+.stats-section {
+  padding: 20px 0;
+  background-color: var(--goiaba-marrom-terra); /* Fundo Marrom Terra */
 }
 
 .stats-section .stat-card {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
+  background-color: var(--primary-color); /* Amarelo Milho */
+  color: var(--goiaba-marrom-terra); /* Texto Marrom Terra */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
 }
 
 .stats-section .stat-card:hover {
-    transform: translateY(-10px);
+  transform: translateY(-10px);
 }
 
 .stat-number {
-    font-size: 48px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #c9c9c9;
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--goiaba-red-tomate); /* Vermelho Tomate */
 }
 
 .stat-description {
-    font-size: 18px;
-    color: #fff;
+  font-size: 18px;
+  color: var(--goiaba-marrom-terra); /* Marrom Terra */
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .stat-number {
-        font-size: 36px;
-    }
+  .stat-number {
+    font-size: 36px;
+  }
 
-    .stat-description {
-        font-size: 16px;
-    }
+  .stat-description {
+    font-size: 16px;
+  }
 }
 
 .cardrevenda {
   border: none;
   border-radius: 10px;
-  background: #fff;
-  color:#4f074e
+  background: var(--goiaba-beige-palha); /* Bege Palha */
+  color: var(--goiaba-marrom-terra); /* Marrom Terra */
 }
 .cardcreditos {
   border: none;
   border-radius: 10px;
-  background: #f5f5f5;
+  background: var(--goiaba-beige-palha); /* Bege Palha */
 }
-
